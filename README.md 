@@ -1,0 +1,153 @@
+# MyMarketplace
+
+MyMarketplace est une application Django permettant de créer et de gérer un marketplace où les utilisateurs peuvent s'inscrire en tant qu'acheteurs ou vendeurs, publier des annonces, passer des commandes, et interagir avec d'autres utilisateurs.
+
+## Table des matières
+
+1. [Installation](#installation)
+2. [Configuration de la base de données](#configuration-de-la-base-de-données)
+3. [Lancement de l'application](#lancement-de-lapplication)
+4. [Fonctionnalités](#fonctionnalités)
+5. [Modèles de données](#modèles-de-données)
+6. [API REST](#api-rest)
+7. [Contribution](#contribution)
+8. [Licence](#licence)
+
+## Installation
+
+1. **Cloner le dépôt** :
+
+    ```bash
+    git clone https://github.com/votre-utilisateur/mymarketplace.git
+    cd mymarketplace
+    ```
+
+2. **Créer un environnement virtuel** :
+
+    ```bash
+    python3 -m venv env
+    source env/bin/activate
+    ```
+
+3. **Installer les dépendances** :
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Installer MySQL Server** :
+
+    Suivez les instructions de votre système d'exploitation pour installer MySQL. Assurez-vous que le serveur MySQL est en cours d'exécution.
+
+## Configuration de la base de données
+
+1. **Créer une base de données MySQL** :
+
+    Connectez-vous à MySQL et créez une nouvelle base de données :
+
+    ```sql
+    CREATE DATABASE mymarketplace CHARACTER SET UTF8;
+    ```
+
+2. **Configurer les paramètres de la base de données dans `settings.py`** :
+
+    Ouvrez le fichier `mymarketplace/settings.py` et mettez à jour la configuration de la base de données comme suit :
+
+    ```python
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'mymarketplace',   # Nom de votre base de données
+            'USER': 'votre_utilisateur', # Remplacez par votre utilisateur MySQL
+            'PASSWORD': 'votre_mot_de_passe', # Remplacez par votre mot de passe MySQL
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+    ```
+
+3. **Migrer la base de données** :
+
+    Exécutez les commandes suivantes pour appliquer les migrations de base de données :
+
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
+
+## Lancement de l'application
+
+1. **Créer un super utilisateur** pour accéder à l'interface d'administration :
+
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+2. **Lancer le serveur de développement** :
+
+    ```bash
+    python manage.py runserver
+    ```
+
+    Accédez à l'application à l'adresse [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+## Fonctionnalités
+
+- **Inscription et authentification** via email, réseaux sociaux (Google, Facebook, Twitter).
+- **Profils utilisateurs** : Création et gestion de profils détaillés pour acheteurs et vendeurs.
+- **Gestion des annonces** : Création, modification et suppression des annonces par les vendeurs.
+- **Gestion des commandes** : Passer, modifier, et supprimer des commandes par les acheteurs.
+- **Tableau de bord utilisateur** : Suivi des annonces, commandes, et interactions avec d'autres utilisateurs.
+
+## Modèles de données
+
+Le projet utilise les modèles suivants :
+
+- **CustomUser** : Utilisateur personnalisé avec des rôles (acheteur, vendeur, administrateur), numéro de téléphone, et photo de profil.
+- **Annonce** : Annonce créée par un utilisateur vendeur, contenant un titre, une description, un prix, et une image.
+- **Commande** : Commande passée par un utilisateur acheteur pour une annonce spécifique.
+
+## API REST
+
+Les API REST sont fournies pour les opérations CRUD sur les modèles `CustomUser`, `Annonce`, et `Commande`.
+
+- **CustomUser** : API pour la création, la lecture, la mise à jour, et la suppression des utilisateurs.
+- **Annonce** : API pour gérer les annonces (créer, lire, modifier, supprimer).
+- **Commande** : API pour gérer les commandes (créer, lire, modifier, supprimer).
+
+## Contribution
+
+Si vous souhaitez contribuer au projet :
+
+1. Forkez le projet.
+2. Créez une branche pour votre fonctionnalité (`git checkout -b nouvelle-fonctionnalite`).
+3. Faites vos modifications et validez-les (`git commit -m 'Ajouter une nouvelle fonctionnalité'`).
+4. Poussez vers la branche (`git push origin nouvelle-fonctionnalite`).
+5. Créez une Pull Request.
+
+## Licence
+
+Ce projet est sous licence MIT. Consultez le fichier `LICENSE` pour plus d'informations.
+
+Commandes pour démarrer le projet
+Cloner le dépôt:
+
+bash
+Copier le code
+git clone https://github.com/votre-utilisateur/mymarketplace.git
+cd mymarketplace
+Créer l'environnement virtuel et installer les dépendances:
+
+bash
+Copier le code
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+Migrer et lancer le serveur:
+
+bash
+Copier le code
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
