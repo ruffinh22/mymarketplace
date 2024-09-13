@@ -18,7 +18,7 @@ MyMarketplace est une application Django permettant de créer et de gérer un ma
 1. **Cloner le dépôt** :
 
     ```bash
-    git clone https://github.com/votre-utilisateur/mymarketplace.git
+    git clone https://github.com/ruffinh22/mymarketplace.git
     cd mymarketplace
     ```
 
