@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Marketplace{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'mymarketplace/css/main.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Mon Marketplace</h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Tableau de Bord</a></li>
+                    <li><a href="{% url 'profile' %}">Profil</a></li>
+                    <li><a href="{% url 'account_logout' %}">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="{% url 'account_login' %}">Se connecter</a></li>
+                    <li><a href="{% url 'account_signup' %}">S'inscrire</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- Contenu des pages étendues sera inséré ici -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mon Marketplace</p>
+    </footer>
+</body>
+</html>

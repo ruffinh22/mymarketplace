@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+S'inscrire - Mon Marketplace
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Créer un Compte</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </form>
+    <p>Vous avez déjà un compte ? <a href="{% url 'account_login' %}">Se connecter</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profil - Mon Marketplace
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Votre Profil</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Mettre à jour le profil</button>
+    </form>
+</div>
+{% endblock %}

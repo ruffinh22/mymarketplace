@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Créer une Annonce - Mon Marketplace
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2>Créer une Annonce</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Publier l'annonce</button>
+    </form>
+</div>
+{% endblock %}

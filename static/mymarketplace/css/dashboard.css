@@ -1,0 +1,87 @@
+/* dashboard.css */
+
+/* Reset de style de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* En-tête */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 28px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #555;
+}
+
+/* Liens */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+a:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+
+/* Listes */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Boutons */
+button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #000203;
+}

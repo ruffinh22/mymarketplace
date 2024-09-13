@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Créer une Commande - Mon Marketplace
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Créer une Commande</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Passer la commande</button>
+    </form>
+</div>
+{% endblock %}

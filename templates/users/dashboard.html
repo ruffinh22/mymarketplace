@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Tableau de Bord - Mon Marketplace
+{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'mymarketplace/css/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header>
+        <h2>Tableau de Bord</h2>
+        <p>Bienvenue, {{ user.username }}!</p>
+    </header>
+
+    <section class="annonces">
+        <h3>Vos Annonces</h3>
+        <a href="{% url 'create_annonce' %}" class="btn">Créer une nouvelle annonce</a>
+        <ul>
+            {% for annonce in annonces %}
+                <li class="annonce-item">
+                    <strong>{{ annonce.title }}</strong> - {{ annonce.price }}€
+                    <div class="actions">
+                        <a href="{% url 'edit_annonce' annonce.id %}" class="btn btn-edit">Modifier</a>
+                        <a href="{% url 'delete_annonce' annonce.id %}" class="btn btn-delete">Supprimer</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="commandes">
+        <h3>Vos Commandes</h3>
+        <a href="{% url 'create_commande' %}" class="btn">Créer une nouvelle commande</a>
+            <ul>
+                {% for commande in commandes %}
+                    <li class="commande-item">
+                        Commande pour {{ commande.annonce.title }} - Statut : {{ commande.status }}
+                        <div class="actions">
+                            <a href="{% url 'edit_commande' commande.id %}" class="btn btn-edit">Modifier</a>
+                            <a href="{% url 'delete_commande' commande.id %}" class="btn btn-delete">Supprimer</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+    </section>
+</div>
+{% endblock %}

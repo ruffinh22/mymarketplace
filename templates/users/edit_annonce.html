@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Modifier une Annonce - Mon Marketplace
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Modifier l'Annonce</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
+</div>
+{% endblock %}

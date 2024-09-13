@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+
+{% block title %}
+Connexion - Mon Marketplace
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Connexion</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+    
+    <p>Ou connectez-vous avec :</p>
+    
+    <!-- Bouton de connexion Google -->
+    <a href="{% provider_login_url 'google' %}" class="btn btn-outline-danger">
+        <i class="fab fa-google"></i> Connexion avec Google
+    </a>
+
+    <!-- Bouton de connexion Facebook -->
+    <a href="{% provider_login_url 'facebook' %}" class="btn btn-outline-primary">
+                <i class="fab fa-facebook"></i> Connexion avec Facebook
+    </a>
+
+    <!-- Bouton de connexion Twitter -->
+    <a href="{% provider_login_url 'twitter' %}" class="btn btn-outline-info">
+        <i class="fab fa-twitter"></i> Connexion avec Twitter
+    </a>
+
+    <!-- Ajoutez d'autres boutons pour d'autres fournisseurs ici -->
+    
+    <p>Pas encore inscrit? <a href="{% url 'account_signup' %}">Créer un compte</a></p>
+</div>
+{% endblock %}
